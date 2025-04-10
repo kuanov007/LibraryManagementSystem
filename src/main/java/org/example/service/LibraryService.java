@@ -19,5 +19,5 @@ public interface LibraryService {
 
     Book findOldestBook(BinaryOperator<Book> binaryOperator);
 
-    List<Book> getSortedBooks(Comparator<Book> comparator);
+    void getSortedBooks(Comparator<Book> comparator);
 }

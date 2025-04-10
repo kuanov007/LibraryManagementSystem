@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.db.DB;
 import org.example.entities.Author;
 import org.example.entities.Book;
 import org.example.entities.Category;
@@ -7,11 +8,15 @@ import org.example.service.LibraryServiceImplementation;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
+
+import static org.example.db.DB.books;
 
 public class Main {
     private static LibraryServiceImplementation service = new LibraryServiceImplementation();
 
     public static void main(String[] args) {
+        //kitob qo'shish
         service.addBookFromSupplier(() -> {
             Book book = new Book();
             book.setTitle(readLine("Kitobni nomini kiriting: "));
@@ -48,7 +53,12 @@ public class Main {
             int year2 = book2.getAuthor().getYear();
             return year1 < year2 ? book : book2;
         });
+
+        // Qila olmagan methodlarim 2 ta
+        //kitobni nomini o'zgartiradi
+        //kitoblarni saralaydi
     }
+
 
     private static String readLine(String message) {
         System.out.print(message);
